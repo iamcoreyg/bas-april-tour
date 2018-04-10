@@ -1,0 +1,252 @@
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" />
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script id="template" type="x-tmpl-mustache">
+            <a href={{TICKET_LINK}} class="show-link"><div class="show">
+            	<div class="date">{{ FORMATTED_DATE }}</div>
+            	<div class="show-info">
+            		<div class="country">
+            			{{ LOCATION }}
+        			</div>
+        			<div class="event-name">
+            			{{ VENUE }}
+        			</div>
+        			<br clear="all" />
+        		</div>
+        	</div>
+	</script>
+
+    <script
+    src="//code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="mustache.js"></script>
+
+</head>
+<body>
+
+	<div class="container-wrap">
+		<div class="container">
+			<img id="header" src="images/header.png" alt="Bas Tour" />
+
+			<div id="dates">
+				<div id="target"></div>
+			</div>
+		</div>
+
+		<div class="logos">
+			<a href="http://dreamville.com/"><img src="images/dreamville.png"  id="dreamville" /></a>
+			<a href="./"><img src="images/globe.png" id="globe" /></a>
+			<a href="http://fiends.nyc"><img src="images/fiends.png" id="fiends" /></a>
+		</div>
+	</div>
+	<div id="stamps"></div>
+
+
+	<script>
+	    var selectedView = {
+  "ROUTING": {
+    "Fri Jun 30 2017 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2017-06-30T07:00:00.000Z",
+      "DAY": "Sat",
+      "LOCATION": "Glasgow, UK",
+      "VENUE": "TRNSMT Festival",
+      "CAP": 3000,
+      "TICKET_LINK": "http://trnsmtfest.com/"
+    },
+    "Sat Jul 01 2017 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2017-07-01T07:00:00.000Z",
+      "DAY": "Sun",
+      "LOCATION": "Manchester, UK",
+      "VENUE": "Rebellion",
+      "CAP": 400,
+      "TICKET_LINK": "https://www.ticketmaster.co.uk/Bas-tickets/artist/1992786?tm_link=artist_artistvenue_module"
+    },
+    "Sun Jul 02 2017 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2017-07-02T07:00:00.000Z",
+      "DAY": "Mon",
+      "LOCATION": "Birmingham, UK",
+      "VENUE": "Institute 3",
+      "CAP": 300,
+      "TICKET_LINK": "https://www.ticketmaster.co.uk/Bas-tickets/artist/1992786?tm_link=artist_artistvenue_module"
+    },
+    "Mon Jul 03 2017 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2017-07-03T07:00:00.000Z",
+      "DAY": "Tue",
+      "LOCATION": "London, UK",
+      "VENUE": "XoYo (Wireless presents…)",
+      "CAP": 550,
+      "TICKET_LINK": "https://www.ticketmaster.co.uk/Bas-tickets/artist/1992786?tm_link=artist_artistvenue_module"
+    },
+    "Tue Jul 04 2017 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2017-07-04T07:00:00.000Z",
+      "DAY": "Wed",
+      "LOCATION": "",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Thu Jul 05 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-05T07:00:00.000Z",
+      "DAY": "Thu",
+      "LOCATION": "Frauenfeld, Switzerland",
+      "VENUE": "Openair Frauenfeld Festival",
+      "CAP": 3000,
+      "TICKET_LINK": "http://www.openair-frauenfeld.ch/"
+    },
+    "Fri Jul 06 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-06T07:00:00.000Z",
+      "DAY": "Fri",
+      "LOCATION": "London, UK",
+      "VENUE": "Wireless Festival @ Finsbury Park",
+      "CAP": 5000,
+      "TICKET_LINK": "https://www.wirelessfestival.co.uk/"
+    },
+    "Sat Jul 07 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-07T07:00:00.000Z",
+      "DAY": "Sat",
+      "LOCATION": "",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Sun Jul 08 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-08T07:00:00.000Z",
+      "DAY": "Sun",
+      "LOCATION": "Gräfenhainichen, Germany",
+      "VENUE": "Splash! Festival",
+      "CAP": 3000,
+      "TICKET_LINK": "http://splash-festival.de/en/"
+    },
+    "Mon Jul 09 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-09T07:00:00.000Z",
+      "DAY": "Mon",
+      "LOCATION": "Munich, Germany",
+      "VENUE": "Hansa 39",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Tue Jul 10 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-10T07:00:00.000Z",
+      "DAY": "Tue",
+      "LOCATION": "Vienna, Austria",
+      "VENUE": "Flex",
+      "CAP": 300,
+      "TICKET_LINK": ""
+    },
+    "Wed Jul 11 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-11T07:00:00.000Z",
+      "DAY": "Wed",
+      "LOCATION": "",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Thu Jul 12 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-12T07:00:00.000Z",
+      "DAY": "Thu",
+      "LOCATION": "",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Fri Jul 13 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-13T07:00:00.000Z",
+      "DAY": "Fri",
+      "LOCATION": "Dublin, Ireland",
+      "VENUE": "Longitude Festival",
+      "CAP": 3000,
+      "TICKET_LINK": "http://www.longitude.ie/"
+    },
+    "Sat Jul 14 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-14T07:00:00.000Z",
+      "DAY": "Sat",
+      "LOCATION": "",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    },
+    "Sun Jul 15 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-15T07:00:00.000Z",
+      "DAY": "Sun",
+      "LOCATION": "Tilburg, Netherlands",
+      "VENUE": "WOO HAH! Festival",
+      "CAP": 5000,
+      "TICKET_LINK": "https://woohahfestival.com/"
+    },
+    "Mon Jul 16 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-16T07:00:00.000Z",
+      "DAY": "Mon",
+      "LOCATION": "Cologne, Germany",
+      "VENUE": "Yuca",
+      "CAP": 250,
+      "TICKET_LINK": ""
+    },
+    "Tue Jul 17 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-17T07:00:00.000Z",
+      "DAY": "Tue",
+      "LOCATION": "Copenhagen, Denmark",
+      "VENUE": "Lille Vega",
+      "CAP": 450,
+      "TICKET_LINK": "https://www.ticketmaster.dk/event/VEL1707D?language=da-dk&brand=dk_ico"
+    },
+    "Wed Jul 18 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-18T07:00:00.000Z",
+      "DAY": "Wed",
+      "LOCATION": "Oslo, Norway",
+      "VENUE": "John Dee",
+      "CAP": 400,
+      "TICKET_LINK": ""
+    },
+    "Thu Jul 19 2018 03:00:00 GMT-0400 (EDT)": {
+      "DATE": "2018-07-19T07:00:00.000Z",
+      "DAY": "Thu",
+      "LOCATION": "Stockholm, Sweden",
+      "VENUE": "Debaser Strand",
+      "CAP": 350,
+      "TICKET_LINK": ""
+    },
+    "": {
+      "DATE": "",
+      "DAY": "",
+      "LOCATION": "Festival",
+      "VENUE": "",
+      "CAP": "",
+      "TICKET_LINK": ""
+    }
+  }
+}
+
+		var formatDate = function(foo) {
+			var date = new Date(foo)
+			return date.getMonth()+1 + '.' + date.getDate();
+		}
+	    
+	    var render = function() {
+	        var template = $('#template').html();
+	        Mustache.parse(template);   // optional, speeds up future uses
+
+	        var entries = Object.keys(selectedView['ROUTING']);
+
+	        $.each(entries, function(key, val) {
+	        	var content = selectedView['ROUTING'][val]
+				if(selectedView['ROUTING'][val]['DATE'] && selectedView['ROUTING'][val]['LOCATION']) {
+					content['FORMATTED_DATE'] = formatDate(selectedView['ROUTING'][val]['DATE'])			
+					var html = Mustache.to_html(template, content);
+		        	$('#target').append(html);
+				}
+
+		        
+			});
+	    };
+
+	    render();
+    </script>
+
+
+</body>
+</html>

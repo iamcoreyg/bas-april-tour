@@ -1,0 +1,107 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background: #ccc url('images/bas.jpg') center center fixed no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	width: 100%;
+	text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+}
+
+.container-wrap {
+	position: absolute;
+	z-index: 10;
+	top: 40%;
+	width: 100%;
+	text-align: center;
+}
+
+img#header {
+	max-width: 300px;
+	width: 90%;
+	margin-bottom: 30px;
+}
+
+.container {
+	max-width: 600px;
+	width: 95%;
+	margin: auto;
+	padding: 50px 0;
+}
+
+#stamps {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: url('images/stamps.png') center center fixed no-repeat;
+	background-size: cover;
+}
+
+.show {
+	font-family: 'Helvetica', sans-serif;
+	color: #fff;
+	font-weight: bold;
+	font-size: 10pt;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.date {
+	width: 100px;
+}
+
+.date, .show-info {
+	display: inline-block;
+}
+
+.show-info {
+	width: calc(100% - 110px);
+}
+
+.country, 
+.event-name {
+	display: inline-block;
+	width: 49%;
+	text-align: left;
+}
+
+.show-link {
+	transition: all .1s;
+}
+
+.show-link:hover {
+	opacity: .6;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+}
+
+.logos {
+	padding-bottom: 50px;
+}
+
+.logos img, .logos a {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+
+#fiends {
+	max-height: 20px !important;
+}
+
+#globe {
+	max-height: 30px;
+}
+
+#dreamville {
+	max-width: 100px;
+}
