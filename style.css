@@ -1,8 +1,9 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	background: #ccc url('images/bas.jpg') center center fixed no-repeat;
+	background: url('images/bas.jpg') center center fixed no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 	min-height: 100vh;
 	width: 100%;
 	text-rendering: optimizeLegibility;
@@ -82,10 +83,6 @@ img#header {
 a {
 	text-decoration: none;
 	display: block;
-}
-
-.logos {
-	padding-bottom: 50px;
 }
 
 .logos img, .logos a {
